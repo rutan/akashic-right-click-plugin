@@ -1,0 +1,52 @@
+{
+  "name": "@rutan/akashic-right-click-plugin",
+  "version": "0.1.0",
+  "author": "ru_shalm <ru_shalm@hazimu.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/rutan/akashic-right-click-plugin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rutan/akashic-right-click-plugin"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "module": "esm/index.js",
+  "files": [
+    "src/",
+    "lib/",
+    "esm/"
+  ],
+  "scripts": {
+    "build": "run-s clean build:*",
+    "build:cjs": "cross-env NODE_ENV=production tsc -p ./tsconfig.json",
+    "build:esm": "cross-env NODE_ENV=production tsc -p ./tsconfig.esm.json",
+    "clean": "run-p clean:*",
+    "clean:lib": "rimraf ./lib",
+    "clean:esm": "rimraf ./esm",
+    "watch": "run-p watch:*",
+    "watch:cjs": "tsc -w -p ./tsconfig.json",
+    "watch:esm": "tsc -w -p ./tsconfig.esm.json",
+    "prepublish": "npm run build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "dependencies": {
+    "@akashic/akashic-engine": "~3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.34",
+    "cross-env": "^7.0.3",
+    "husky": "^4.3.8",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.2.3"
+  }
+}
