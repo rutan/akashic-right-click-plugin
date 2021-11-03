@@ -1,6 +1,6 @@
 import { RightClickableE } from './RightClickableE';
 
-export class RightClickPlugin implements g.OperationPlugin {
+export const RightClickPlugin: g.OperationPluginStatic = class RightClickPlugin implements g.OperationPlugin {
   static isSupported(): boolean {
     return typeof document !== 'undefined' && typeof document.addEventListener === 'function';
   }
@@ -12,7 +12,7 @@ export class RightClickPlugin implements g.OperationPlugin {
   private _getScale: (() => { x: number; y: number }) | null;
   private _currentTarget: RightClickableE | null;
 
-  constructor(game: g.Game, view: g.OperationPluginView, _option: any) {
+  constructor(game: g.Game, view: g.OperationPluginViewInfo | null, option: any) {
     this.operationTrigger = new g.Trigger();
     this.game = game;
     this.view = (view as any).view;
@@ -105,6 +105,6 @@ export class RightClickPlugin implements g.OperationPlugin {
       y: offsetY / scale.y,
     };
   }
-}
+};
 
 module.exports = RightClickPlugin;
