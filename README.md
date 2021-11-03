@@ -10,7 +10,7 @@
 akashic install --plugin 5 @rutan/akashic-right-click-plugin
 ```
 
-※インストール後、 game.json 内の path の中身を `lib/index.js` から `/lib/RightClickPlugin.js` に書き換える必要があります。
+※インストール後、 game.json 内の path の中身を `lib/index.js` から `/lib/initRightClickPlugin.js` に書き換える必要があります。
 
 ### 利用方法
 

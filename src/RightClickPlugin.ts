@@ -106,5 +106,3 @@ export const RightClickPlugin: g.OperationPluginStatic = class RightClickPlugin 
     };
   }
 };
-
-module.exports = RightClickPlugin;
